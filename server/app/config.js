@@ -32,6 +32,7 @@ app.use(
     origin: [
       process.env.CLIENT_URL, // keep this one, after checking the value in `server/.env`
     ],
+    methods: ["GET"],
   })
 );
 
@@ -103,7 +104,7 @@ app.use("/api", apiRouter);
 // 1. Uncomment the lines related to serving static files and redirecting unhandled requests.
 // 2. Ensure that the `reactBuildPath` points to the correct directory where your client's build artifacts are located.
 
-/*
+// eslint-disable-next-line import/order
 const path = require("path");
 
 const reactBuildPath = path.join(__dirname, "/../../client/dist");
@@ -115,14 +116,13 @@ app.use(express.static(reactBuildPath));
 
 // Serve server resources
 
-app.get("*.*", express.static(publicFolderPath, { maxAge: "1y" }));
+app.use("*.*", express.static(publicFolderPath, { maxAge: "1y" }));
 
 // Redirect unhandled requests to the react index file
 
 app.get("*", (_, res) => {
   res.sendFile(path.join(reactBuildPath, "/index.html"));
 });
-*/
 
 /* ************************************************************************* */
 

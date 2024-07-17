@@ -38,8 +38,10 @@ class PostRepository extends AbstractRepository {
   }
 
   async readAll() {
-    // Execute the SQL SELECT query to retrieve all posts from the "post" table
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+    // Execute the SQL SELECT query to retrieve all posts from the "post" table, ordered by publish_date in descending order
+    const [rows] = await this.database.query(
+      `select * from ${this.table} ORDER BY publish_date DESC`
+    );
 
     // Return the array of posts
     return rows;
