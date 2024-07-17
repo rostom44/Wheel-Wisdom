@@ -17,7 +17,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="avatar">
-        <Link to="/" className="avatar-link">
+        <Link to="/login" className="avatar-link">
           <RxAvatar className="avatar-icon" />
         </Link>
       </div>
