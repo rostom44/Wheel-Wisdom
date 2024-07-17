@@ -1,3 +1,53 @@
-body {
-  margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+:root {
+  --main-bg-color: linear-gradient(
+    180deg,
+    rgba(10, 10, 35, 1) 0%,
+    rgba(0, 123, 255, 1) 100%
+  );
+
+  --main-bg-image-desktop: url("../assets/images/wheel_wisdom_desktop.png");
+  --main-bg-image-mobile: url("../assets/images/wheel_wisdom.png");
+  --bg-color-light: rgba(255, 255, 255, 0.7);
+
+  --main-text-color-light: rgb(255, 255, 255);
+  --main-text-color-dark: rgb(0, 0, 0);
+  --main-primary-color: rgb(10, 10, 35);
+  --main-secondary-color: rgb(11, 72, 137);
 }
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-light);
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--main-text-color-dark);
+}
+
+.button {
+  width: 6.5rem;
+  height: 2.5rem;
+  background: var(--main-secondary-color);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+/* body {
+  background-image: var(--main-bg-color);
+  background-repeat: no-repeat;
+  height: 100vh;
+} */

@@ -1,0 +1,72 @@
+body {
+  background-image: var(--main-bg-image-desktop);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.component {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--bg-color-light);
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  width: 50%; /* default width */
+  max-width: 40rem; /* max width for desktop */
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  width: 100%;
+}
+
+.input-control {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  width: 100%;
+}
+
+.input {
+  width: 100%; /* full width on small screens */
+  height: 2.5rem;
+  border-radius: 0.4rem;
+}
+.input::placeholder {
+  padding-left: 0.5rem;
+  font-weight: bolder;
+  font-size: medium;
+}
+
+.error {
+  color: rgb(162, 23, 23);
+}
+Form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-image: var(--main-bg-image-mobile);
+    background-size: cover;
+  }
+
+  .component {
+    width: 90%; /* full width on smaller screens */
+    max-width: 90%; /* max width for mobile */
+  }
+}
