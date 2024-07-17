@@ -42,7 +42,7 @@ export default function Register() {
           <div className="form-group">
             <label className="input-control">
               <input
-                className="input container"
+                className="input "
                 type="text"
                 id="firstname"
                 name="firstname"
@@ -57,7 +57,7 @@ export default function Register() {
             </label>
             <label className="input-control">
               <input
-                className="input container"
+                className="input "
                 type="text"
                 id="lastname"
                 name="lastname"
@@ -72,7 +72,7 @@ export default function Register() {
             </label>
             <label className="input-control">
               <input
-                className="input container"
+                className="input "
                 type="email"
                 id="email"
                 placeholder="Email"
@@ -87,7 +87,7 @@ export default function Register() {
             </label>
             <label className="input-control">
               <input
-                className="input container"
+                className="input "
                 type="password"
                 id="password"
                 placeholder="Password"
@@ -102,7 +102,7 @@ export default function Register() {
             </label>
             <label className="input-control">
               <input
-                className="input container"
+                className="input "
                 type="password"
                 id="password2"
                 placeholder="Confirm Password"
@@ -116,6 +116,7 @@ export default function Register() {
               )}
             </label>
           </div>
+
           <button className="button" id="signupbut" type="submit">
             Submit
           </button>

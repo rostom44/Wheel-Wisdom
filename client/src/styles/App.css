@@ -41,10 +41,22 @@ h1 {
   color: var(--main-text-color-dark);
 }
 
+a {
+  text-decoration: none;
+  color: var(--main-text-color-dark);
+}
+
 .button {
   width: 6.5rem;
   height: 2.5rem;
   background: var(--main-secondary-color);
   color: white;
   border-radius: 0.5rem;
+}
+
+.line {
+  width: 80%;
+  background-color: black;
+  height: 0.1rem;
+  margin-bottom: 0.8rem;
 }

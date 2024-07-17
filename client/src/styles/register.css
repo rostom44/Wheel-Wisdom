@@ -59,6 +59,15 @@ Form {
   width: 50vw;
   padding: 1rem;
 }
+
+.forget {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.forget > p:hover {
+  color: var(--main-secondary-color);
+}
 @media (max-width: 600px) {
   .register-page {
     background-image: var(--main-bg-image-mobile);
