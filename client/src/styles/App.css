@@ -25,16 +25,19 @@
   font-family: "Open Sans", sans-serif;
 }
 
+body {
+  padding-top: 10vh;
+}
+
 .component {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--bg-color-light);
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.6rem;
   color: var(--main-text-color-dark);
 }
 
@@ -45,9 +48,3 @@ h1 {
   color: white;
   border-radius: 0.5rem;
 }
-
-/* body {
-  background-image: var(--main-bg-color);
-  background-repeat: no-repeat;
-  height: 100vh;
-} */

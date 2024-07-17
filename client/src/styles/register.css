@@ -1,22 +1,20 @@
-body {
+.register-page {
   background-image: var(--main-bg-image-desktop);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 100vh;
-  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.component {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.container {
   background-color: var(--bg-color-light);
   padding: 1.2rem;
   border-radius: 0.5rem;
-  width: 50%; /* default width */
   max-width: 40rem; /* max width for desktop */
+  margin-bottom: 2rem;
 }
 
 .form-group {
@@ -42,6 +40,7 @@ body {
   height: 2.5rem;
   border-radius: 0.4rem;
 }
+
 .input::placeholder {
   padding-left: 0.5rem;
   font-weight: bolder;
@@ -51,22 +50,34 @@ body {
 .error {
   color: rgb(162, 23, 23);
 }
+
 Form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 80%;
+  width: 50vw;
+  padding: 1rem;
 }
-
 @media (max-width: 600px) {
-  body {
+  .register-page {
     background-image: var(--main-bg-image-mobile);
     background-size: cover;
   }
 
-  .component {
-    width: 90%; /* full width on smaller screens */
-    max-width: 90%; /* max width for mobile */
+  .container {
+    width: 80%; /* full width on mobile */
+    margin: 0; /* margin on sides */
+    padding: 0.5rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .input::placeholder {
+    font-size: 0.7rem;
+    padding-left: 0.1rem;
+  }
+  .bodyform {
+    width: 95%;
   }
 }

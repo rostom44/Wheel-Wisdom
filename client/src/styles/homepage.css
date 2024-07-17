@@ -1,0 +1,42 @@
+.homepage {
+  background: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+}
+.post-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color-light);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  width: 75%;
+}
+
+.post > * {
+  padding: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .post-container {
+    width: 100%;
+    padding: 0.2rem;
+    margin: 0;
+    gap: 0.8rem;
+  }
+}
