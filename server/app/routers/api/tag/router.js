@@ -24,7 +24,7 @@ router.get("/:id", read);
 router.post("/", add);
 
 // Route to get posts by tag
-router.get("/:id/posts", getPostsByTag);
+router.get("/:id/post", getPostsByTag);
 
 /* ************************************************************************* */
 
