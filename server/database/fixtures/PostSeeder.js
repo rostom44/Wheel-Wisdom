@@ -2,7 +2,9 @@ const fs = require("fs");
 const path = require("path");
 const AbstractSeeder = require("./AbstractSeeder");
 
-const pics = path.join(__dirname, "../../public/images");
+const link = JSON.parse(
+  fs.readFileSync(path.join(__dirname, "../../public/links.json"))
+);
 
 class PostSeeder extends AbstractSeeder {
   constructor() {
@@ -11,15 +13,12 @@ class PostSeeder extends AbstractSeeder {
 
   async run() {
     try {
-      // Fetch image files from the directory
-      const imageFiles = fs.readdirSync(pics);
-
       // Generate and insert fake data into the 'post' table
-      const posts = imageFiles.map((image) => ({
+      const posts = link.map((image) => ({
         title: this.faker.lorem.sentence(), // Generate a fake title
         publish_date: this.faker.date.past(), // Generate a fake past date
         content: this.faker.lorem.paragraphs(), // Generate fake paragraphs of content
-        image: `images/${image}`,
+        image: image.img,
       }));
 
       // Insert each post into the 'post' table

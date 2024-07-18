@@ -47,6 +47,15 @@
   justify-content: center;
   background-color: var(--main-primary-color);
   color: var(--main-text-color-light);
+  padding: 0.6rem;
+}
+
+.tag-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
 }
 .tag-container {
   display: flex;
