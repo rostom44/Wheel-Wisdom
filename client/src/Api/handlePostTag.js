@@ -1,23 +1,28 @@
 const Api = import.meta.env.VITE_API_URL;
 
-const handleTag = async () => {
+const handlePostTag = async (tags) => {
   try {
     const response = await fetch(`${Api}api/tag/`, {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify({ tags }),
     });
 
     if (!response.ok) {
-      throw new Error(`Server responded with status ${response.status}`);
+      const errorData = await response.json();
+      throw new Error(
+        `Server responded with status ${response.status}: ${errorData.message || "Unknown error"}`
+      );
     }
 
-    const tags = await response.json();
-    return { success: true, tags };
+    const result = await response.json();
+    return { success: true, result };
   } catch (error) {
-    return { error: error.message };
+    console.error("Error posting tags:", error.message);
+    return { success: false, error: error.message };
   }
 };
 
-export default handleTag;
+export default handlePostTag;

@@ -7,6 +7,7 @@ import App from "./App";
 import Register from "./pages/ResgisterPage";
 import Homepage from "./pages/Homepage";
 import Login from "./pages/LoginPage";
+import PostPage from "./pages/PostPage";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/post/",
+        element: <PostPage />,
       },
     ],
   },

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { LuPlusCircle } from "react-icons/lu";
 import handlePost from "../Api/HandlePosts";
 import Post from "../components/homepage/post";
 import "../styles/homepage.css";
@@ -37,6 +39,12 @@ export default function Homepage() {
           />
         ))}
       </div>
+      <Link to="/post" className="button post-button">
+        <button className="button post-button" type="button">
+          <LuPlusCircle className="post-icon" />
+          POST
+        </button>
+      </Link>
     </div>
   );
 }

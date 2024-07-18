@@ -1,0 +1,56 @@
+.post-add-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.title-label {
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.title-input {
+  width: 75%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--main-border-color);
+}
+
+.content-textarea {
+  width: 75%;
+  height: 150px;
+  padding: 1rem;
+  margin: 2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid black;
+  resize: none;
+}
+
+.button {
+  width: 6.5rem;
+  height: 2.5rem;
+  background: var(--main-secondary-color);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--main-primary-color);
+  color: var(--main-text-color-light);
+}
+.tag-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
