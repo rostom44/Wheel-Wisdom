@@ -10,10 +10,9 @@ class TagRepository extends AbstractRepository {
   // The C of CRUD - Create operation
 
   async create(tag) {
-    if (!tag || !tag.name) {
-      throw new Error("Missing required tag fields");
+    if (!tag.name || tag.name.trim() === "") {
+      throw new Error("Tag name cannot be empty");
     }
-
     // Execute the SQL INSERT query to add a new tag to the "tag" table
     const [result] = await this.database.query(
       `insert into ${this.table} (name) values (?)`,
