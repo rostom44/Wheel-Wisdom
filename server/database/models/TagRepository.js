@@ -52,18 +52,6 @@ class TagRepository extends AbstractRepository {
 
     return result.insertId;
   }
-
-  async getPostsByTag(tagId) {
-    const [rows] = await this.database.query(
-      `SELECT p.id, p.title, p.content, p.publish_date 
-       FROM post p 
-       JOIN post_tags pt ON p.id = pt.post_id 
-       WHERE pt.tag_id = ?`,
-      [tagId]
-    );
-
-    return rows;
-  }
 }
 
 module.exports = TagRepository;
