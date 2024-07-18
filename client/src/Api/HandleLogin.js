@@ -1,9 +1,5 @@
 const Api = import.meta.env.VITE_API_URL;
 
-if (!Api) {
-  console.warn("VITE_API_URL is not set in environment variables");
-}
-
 const handleLogin = async (formValues) => {
   const { email, password } = formValues;
 
@@ -19,13 +15,21 @@ const handleLogin = async (formValues) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formValues),
-      // credentials: "include",
+      credentials: "include",
     });
+
+    const contentType = response.headers.get("content-type");
+
+    if (!contentType || !contentType.includes("application/json")) {
+      const text = await response.text();
+      return { success: false, error: text };
+    }
 
     const data = await response.json();
 
     if (response.ok) {
-      return { success: true, user: data };
+      // Assuming 'id' is a field in the response data
+      return { success: true, id: data.id }; // Ensure 'id' is being returned
     }
     return { success: false, error: data.error };
   } catch (error) {

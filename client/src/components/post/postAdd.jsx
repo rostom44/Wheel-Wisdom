@@ -1,9 +1,9 @@
-// src/components/PostAdd.js
 import { useState, useEffect } from "react";
 import { Form } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { WithContext as ReactTags } from "react-tag-input";
 import { handleGetTag, handlePostTag } from "../../Api/HandleTag";
+import { useUserContext } from "../../context/userContext";
 import handlePostAdd from "../../Api/HandlePostAdd";
 
 const KeyCodes = {
@@ -14,6 +14,7 @@ const KeyCodes = {
 const delimiters = [KeyCodes.comma, KeyCodes.enter];
 
 export default function PostAdd() {
+  const { user } = useUserContext();
   const {
     register,
     handleSubmit,
@@ -21,7 +22,6 @@ export default function PostAdd() {
   } = useForm();
   const [tags, setTags] = useState([]);
   const [availableTags, setAvailableTags] = useState([]);
-  const [userId] = useState(1);
 
   useEffect(() => {
     const fetchTags = async () => {
@@ -32,7 +32,7 @@ export default function PostAdd() {
             id: tag.id.toString(),
             text: tag.name,
           }));
-          setAvailableTags(newTags); // Ensure id is a string
+          setAvailableTags(newTags);
         } else {
           console.error("Error fetching tags:", response.error);
         }
@@ -65,7 +65,7 @@ export default function PostAdd() {
           publish_date: new Date().toISOString().slice(0, 19).replace("T", " "),
           content: data.content,
           image: data.image,
-          user_id: userId,
+          user_id: user?.id,
         };
 
         const postAddResponse = await handlePostAdd(postData);
@@ -120,7 +120,6 @@ export default function PostAdd() {
           <div className="error">{errors.content.message}</div>
         )}
 
-        {/* Optional: Input field for image */}
         <input
           type="text"
           name="image"

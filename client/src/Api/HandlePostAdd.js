@@ -8,6 +8,7 @@ const handlePostAdd = async (formValues) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formValues),
+      credentials: "include",
     });
 
     if (response.status !== 201) {
