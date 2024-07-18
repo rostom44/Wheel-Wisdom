@@ -17,9 +17,10 @@ const browse = async (req, res, next) => {
 
 // The R of BREAD - Read operation
 const read = async (req, res, next) => {
+  const { sub } = req.auth;
   try {
     // Fetch a specific user from the database based on the provided ID
-    const user = await tables.user.read(req.params.id);
+    const user = await tables.user.read(sub);
 
     // If the user is not found, respond with HTTP 404 (Not Found)
     // Otherwise, respond with the user in JSON format

@@ -9,6 +9,8 @@ const router = express.Router();
 // Import item-related actions
 const { browse, read, add } = require("../../../controllers/UserActions");
 const { login } = require("../../../controllers/authActions");
+const { hashPassword } = require("../../../services/auth");
+// const { verifyCookie } = require("../../../services/auth");
 
 // Route to get a list of items
 router.get("/", browse);
@@ -17,7 +19,7 @@ router.get("/", browse);
 router.get("/:id", read);
 
 // Route to add a new item
-router.post("/", add);
+router.post("/", hashPassword, add);
 
 // Route to login
 router.post("/login", login);
