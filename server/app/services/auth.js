@@ -23,12 +23,12 @@ const verifyCookie = (req, res, next) => {
   try {
     const token = req.cookies.access_token;
     if (!token) {
-      return res.sendStatus(401);
+      return res.sendStatus(401).json({ error: "No token provided" });
     }
     req.auth = jwt.verify(token, process.env.APP_SECRET);
     return next();
   } catch (err) {
-    return res.status(404).send("An error occurred");
+    return res.status(404).json({ error: "An error occurred" });
   }
 };
 

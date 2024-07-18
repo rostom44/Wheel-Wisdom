@@ -10,10 +10,6 @@ class PostRepository extends AbstractRepository {
   // The C of CRUD - Create operation
 
   async create(post) {
-    if (!post || !post.title || !post.content || !post.user_id) {
-      throw new Error("Missing required post fields");
-    }
-
     // Execute the SQL INSERT query to add a new post to the "post" table
     const [result] = await this.database.query(
       `insert into ${this.table} (title, content, user_id, publish_date, image) values (?, ?, ?, ?, ?)`,

@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useNavigate, Form } from "react-router-dom";
-
+import { useUserContext } from "../../context/userContext";
 import handleLogin from "../../Api/HandleLogin";
 
 export default function Login() {
+  const { login } = useUserContext();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -32,6 +33,9 @@ export default function Login() {
     try {
       const response = await handleLogin({ email, password });
       if (response.success) {
+        localStorage.setItem("userId", response.id);
+
+        login({ id: response.id }); // Use the id from response
         navigate("/", { state: { user: email } });
       } else {
         console.error("Login failed: ", response.error);
@@ -42,7 +46,7 @@ export default function Login() {
   };
 
   return (
-    <div className="component container ">
+    <div className="component container">
       <Form
         method="post"
         className="bodyform"
@@ -53,7 +57,7 @@ export default function Login() {
         <div className="form-group">
           <label className="input-control">
             <input
-              className="input "
+              className="input"
               type="email"
               id="email"
               name="email"
@@ -68,7 +72,7 @@ export default function Login() {
         <div className="form-group">
           <label className="input-control">
             <input
-              className="input "
+              className="input"
               type="password"
               id="password"
               name="password"
@@ -82,7 +86,7 @@ export default function Login() {
         </div>
         <p className="forget">
           <a href="/">
-            <u>forget password ?</u>
+            <u>Forget password?</u>
           </a>
         </p>
         <button className="button" type="submit">
@@ -91,7 +95,7 @@ export default function Login() {
       </Form>
 
       <div className="line" />
-      <p>Don't have an account ?</p>
+      <p>Don't have an account?</p>
       <a href="/register" style={{ fontWeight: "bold" }}>
         <u>Register</u>
       </a>
