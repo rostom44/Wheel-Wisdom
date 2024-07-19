@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { LuPlusCircle } from "react-icons/lu";
+import { FaArrowUp } from "react-icons/fa";
 import handlePost from "../Api/HandlePosts";
 import handlePostsByTag from "../Api/HandlePostByTag";
 import Post from "../components/homepage/post";
@@ -10,6 +11,7 @@ export default function Homepage() {
   const [posts, setPosts] = useState([]);
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showScroll, setShowScroll] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -37,6 +39,26 @@ export default function Homepage() {
       // Optionally, fetch all posts again or clear the posts list
     }
   };
+
+  const checkScrollTop = () => {
+    if (!showScroll && window.pageYOffset > 400) {
+      setShowScroll(true);
+    } else if (showScroll && window.pageYOffset <= 400) {
+      setShowScroll(false);
+    }
+  };
+
+  const scrollTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", checkScrollTop);
+    return () => {
+      window.removeEventListener("scroll", checkScrollTop);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [showScroll]);
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -71,6 +93,16 @@ export default function Homepage() {
           POST
         </button>
       </Link>
+      {showScroll && (
+        <button
+          className="scroll-top-button"
+          onClick={scrollTop}
+          type="button"
+          aria-label="top page button"
+        >
+          <FaArrowUp className="scroll-top-icon" />
+        </button>
+      )}
     </div>
   );
 }

@@ -1,44 +1,51 @@
-.post-add-container {
+.container-post {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  width: 100%;
+  width: 80%;
   border-radius: 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-color-light);
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 600px;
 }
 
 .title-label {
-  margin-bottom: 1rem;
   width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 .title-input {
-  width: 75%;
-  padding: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
   font-size: 1rem;
   border-radius: 0.5rem;
   border: 1px solid var(--main-border-color);
 }
 
 .content-textarea {
-  width: 75%;
+  width: 100%;
   height: 150px;
   padding: 1rem;
-  margin: 2rem;
   font-size: 1rem;
   border-radius: 0.5rem;
-  border: 2px solid black;
+  border: 1px solid var(--main-border-color);
   resize: none;
 }
 
-.button {
-  width: 6.5rem;
-  height: 2.5rem;
-  background: var(--main-secondary-color);
-  color: white;
+.img-input {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
   border-radius: 0.5rem;
+  border: 1px solid var(--main-border-color);
 }
 
 .tag {
@@ -47,19 +54,54 @@
   justify-content: center;
   background-color: var(--main-primary-color);
   color: var(--main-text-color-light);
-  padding: 0.6rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.25rem;
 }
 
 .tag-group {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
-.tag-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+
+.ReactTags__remove {
+  height: 1rem;
+  width: 1rem;
+  background-color: var(--main-primary-color);
+  border-radius: 0.8rem;
+  padding-left: 0.2rem !important;
+}
+
+.ReactTags__tagInputField {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--main-border-color);
+}
+
+.ReactTags__tags {
+  width: 100%;
+}
+
+.error {
+  color: red;
+  font-size: 0.875rem;
+  margin-top: -1rem;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .post-form {
+    gap: 1rem;
+  }
+
+  .title-input,
+  .content-textarea,
+  .img-input {
+    width: 100%;
+  }
 }

@@ -19,7 +19,7 @@ export default function Register() {
       try {
         const response = await handleRegister(formValues);
         if (response.success) {
-          navigate("/", { state: { user: formValues } });
+          navigate("/login", { state: { user: formValues } });
         } else {
           console.error("Registration failed: ", response.error);
         }
@@ -30,7 +30,7 @@ export default function Register() {
   };
 
   return (
-    <body className="register-page">
+    <div className="register-page">
       <div className="component container">
         <Form
           method="post"
@@ -122,6 +122,6 @@ export default function Register() {
           </button>
         </Form>
       </div>
-    </body>
+    </div>
   );
 }

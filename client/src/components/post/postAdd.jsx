@@ -83,8 +83,12 @@ export default function PostAdd() {
   };
 
   return (
-    <div className="container">
-      <Form onSubmit={handleSubmit(onSubmit)} method="post">
+    <div className="container-post">
+      <Form
+        onSubmit={handleSubmit(onSubmit)}
+        method="post"
+        className="post-form"
+      >
         <div className="title-label">
           <input
             type="text"
@@ -121,6 +125,7 @@ export default function PostAdd() {
         )}
 
         <input
+          className="img-input"
           type="text"
           name="image"
           placeholder="Image URL"

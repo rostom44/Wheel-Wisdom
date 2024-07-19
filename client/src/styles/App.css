@@ -52,6 +52,11 @@ a {
   background: var(--main-secondary-color);
   color: white;
   border-radius: 0.5rem;
+  transition: background 0.3s ease;
+}
+
+.button:hover {
+  background: var(--main-secondary-color);
 }
 
 .line {
