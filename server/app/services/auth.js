@@ -1,11 +1,16 @@
 const argon2 = require("argon2");
 const jwt = require("jsonwebtoken");
 
+// Set the options for password hashing using the argon2 algorithm
+// - type: The type of argon2 algorithm to use (argon2id in this case)
+// - memoryCost: The memory cost, where the memory cost is the number of kibibytes of memory to use
+// - timeCost: The time cost, where the time cost is the number of iterations to perform
+// - parallelism: The degree of parallelism, where the degree of parallelism is the number of threads to use
 const hashingOptions = {
-  type: argon2.argon2id,
-  memoryCost: 19 * 2 ** 10,
-  timeCost: 2,
-  parallelism: 1,
+  type: argon2.argon2id, // Use argon2id algorithm
+  memoryCost: 19 * 2 ** 10, // Use 19 KiB of memory
+  timeCost: 2, // Perform 2 iterations
+  parallelism: 1, // Use 1 thread
 };
 
 const hashPassword = async (req, res, next) => {
