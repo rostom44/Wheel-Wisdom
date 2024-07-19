@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  height: 95vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
 }
 
 .input {
-  width: 100%; /* full width on small screens */
+  width: 80%; /* full width on small screens */
   height: 2.5rem;
   border-radius: 0.4rem;
 }
@@ -85,6 +85,7 @@ Form {
   .input::placeholder {
     font-size: 0.7rem;
     padding-left: 0.1rem;
+    width: 100%;
   }
   .bodyform {
     width: 95%;
